@@ -46,7 +46,7 @@ else{
                     $db->add("topup","username,amount","'$username','$amount'");
                 }
                 else{
-                    $success_message = "เติมเงินไม่สำเร็จ กรุณาตรวจสอบซอง หรือติดต่อผู้ดูแล";
+                    $status_message = "เติมเงินไม่สำเร็จ กรุณาตรวจสอบซอง หรือติดต่อผู้ดูแล";
                 }
             }
 
