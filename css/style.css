@@ -1,0 +1,152 @@
+.bg-purple{
+  background-color: #7838a8;
+}
+.nav-item a{
+  color: white;
+}
+.nav-item a:hover{
+  color: gray;
+}
+.d-flex{
+  position: absolute;
+  right: 0;
+  margin: 15px;
+}
+.d-flex a{
+  margin: 5px;
+}
+.box-area{
+  width: 930px;
+}
+.card h1{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+.btn-purple{
+  background-color: #802DD2;
+  color: white;
+}
+
+.card{
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.card-body input{
+  max-width: 350px;
+  margin: 0 auto;
+}
+.success-message{
+  color:green;
+  text-align: center;
+  
+}
+.error-message{
+  color:red;
+  text-align: center;
+}
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.ann-box{
+  background-color: #332b3b;
+  border-radius: 25px;
+  border: 2px solid;
+  border-collapse: collapse;
+  height: 50px;
+  margin-bottom: 2.5%;
+}
+.ann-box h5{
+  color: white;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-item{
+  width: 25%;
+}
+.content-box img{
+  width: 100%;
+  margin: 0px;
+  object-fit: cover;
+  object-position: 80% 0;
+}
+.content-box{
+  margin: 7px;
+}
+.card-body{
+  display: inline-block;
+}
+.history{
+  display: flex;
+  flex-wrap: wrap;
+}
+.history-item{
+  width: 50%;
+  
+}
+.history-content-box{
+  text-align: center;
+  padding: 20px;
+  background-color: #332b3b;
+  margin: 25px;
+  
+}
+.history-content-box h3{
+  color: white;
+  margin-top: 20px;
+}
+.history-content-box img{
+  width: 250px;
+  margin: 0px;
+}
+.history-content-box a{
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.store{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.store-item{
+  width: 20%;
+}
+.store-content-box{
+  background-color: #332b3b;
+  margin: 10px;
+  text-align: center;
+  border-radius: 5%;
+}
+.store-content-box img{
+  width: 90%;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-radius: 5%;
+}
+.store-content-box h3{
+  color: white;
+  text-align: center;
+}
+.c-purple{
+  color: #802DD2;
+}
+.c-gray{
+  color: gray;
+  padding: 5px;
+}
+.store-content-box a{
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
