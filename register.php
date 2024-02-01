@@ -13,6 +13,9 @@
         }
         else{
             if($db->add("user","username,email,password,role,balance","'$username','$email','$password','$role','$balance'")){
+                session_start();
+                $_SESSION["login"] = 1;
+                $_SESSION["username"] = $username;
                 echo "<script>alert('Register Success !');</script>";
                 echo "<script type='text/javascript'>document.location='index.php'</script>";
             }
@@ -43,7 +46,7 @@
                             <form action="" method="post">
                                 <input type="text" name="username" id="username" class="form-control my-4 py-2"
                                     placeholder="Username" required>
-                                <div class="error-message"><?$err_username?></div>
+                                <div class="error-message"><?=$err_username?></div>
                                 <input type="email" name="email" id="email" class="form-control my-4 py-2"
                                     placeholder="Email" required>
                                 <input type="password" name="password" id="password" class="form-control my-4 py-2"

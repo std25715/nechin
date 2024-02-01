@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2024 at 06:46 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Feb 01, 2024 at 05:22 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.4.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,13 +28,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `history` (
-  `hs_id` int(11) NOT NULL,
+  `history_id` int(11) NOT NULL,
   `dtime` timestamp NOT NULL DEFAULT current_timestamp(),
-  `pd_id` int(5) NOT NULL,
+  `product_id` int(5) NOT NULL,
   `name` varchar(150) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `price` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `price` int(10) NOT NULL,
+  `id_pass` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`history_id`, `dtime`, `product_id`, `name`, `username`, `price`, `id_pass`) VALUES
+(1, '2024-02-01 04:13:51', 1, 'ไก่ตัน V.1', 'signo', 50, 'username:password');
 
 -- --------------------------------------------------------
 
@@ -43,17 +51,29 @@ CREATE TABLE `history` (
 --
 
 CREATE TABLE `product` (
+  `product_id` int(11) NOT NULL,
+  `id_pass` text NOT NULL,
+  `product_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_type`
+--
+
+CREATE TABLE `product_type` (
   `pd_id` int(5) NOT NULL,
   `price` int(10) NOT NULL,
   `name` varchar(150) NOT NULL,
   `img` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `product`
+-- Dumping data for table `product_type`
 --
 
-INSERT INTO `product` (`pd_id`, `price`, `name`, `img`) VALUES
+INSERT INTO `product_type` (`pd_id`, `price`, `name`, `img`) VALUES
 (1, 39, 'ไก่ตัน V.1 ', 'v1.jpg'),
 (2, 59, 'ไก่ตัน V.2 ', 'v2.jpg'),
 (3, 69, 'ไก่ตัน V.3 ', 'v3.jpg');
@@ -69,7 +89,7 @@ CREATE TABLE `topup` (
   `dtime` timestamp NOT NULL DEFAULT current_timestamp(),
   `username` varchar(50) NOT NULL,
   `amount` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `topup`
@@ -92,14 +112,16 @@ CREATE TABLE `user` (
   `role` varchar(100) NOT NULL,
   `balance` int(10) NOT NULL,
   `dtime` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`username`, `password`, `email`, `role`, `balance`, `dtime`) VALUES
-('signo', '1234', 'ppeeppap@gmail.com', 'member', 60, '2023-12-12 16:57:38');
+('signo', '1234', 'ppeeppap@gmail.com', 'member', 60, '2023-12-12 16:57:38'),
+('signo2', '1234', 'signo@gmail.com', 'member', 0, '2024-02-01 03:55:26'),
+('signo3', '1234', 'signo@gmail.com', 'member', 0, '2024-02-01 03:56:28');
 
 --
 -- Indexes for dumped tables
@@ -109,12 +131,18 @@ INSERT INTO `user` (`username`, `password`, `email`, `role`, `balance`, `dtime`)
 -- Indexes for table `history`
 --
 ALTER TABLE `history`
-  ADD PRIMARY KEY (`hs_id`);
+  ADD PRIMARY KEY (`history_id`);
 
 --
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `product_type`
+--
+ALTER TABLE `product_type`
   ADD PRIMARY KEY (`pd_id`);
 
 --
@@ -137,7 +165,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `hs_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `topup`

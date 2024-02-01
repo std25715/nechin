@@ -32,7 +32,10 @@
   max-width: 500px;
   margin: 0 auto;
 }
-
+.card-history{
+  max-width: 80%;
+  margin: 0 auto;
+}
 .card-body input{
   max-width: 350px;
   margin: 0 auto;
@@ -149,4 +152,10 @@
   width: 60%;
   margin: 0 auto;
   margin-bottom: 10px;
+}
+table{
+  width: 100%;
+}
+table th,td{
+  padding: 5px;
 }
