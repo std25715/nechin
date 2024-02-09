@@ -16,7 +16,7 @@ else{
             $price = $row["price"];
             $date = $row["dtime"];
             $tr .= "
-            <tr>
+            <tr class=\"border\">
                 <td>$id</td>
                 <td>$username</td>                
                 <td>$product_id</td>
@@ -36,8 +36,8 @@ else{
                 <div class="col-12 col-sn-8 col-nd-6"> -->
                     <div class="card">
                         <h1>ประวัติการสั่งซื้อ</h1>
-                        <div class="card-body">
-                            <table>
+                        <div class="card-body" style="width: 100%;">
+                            <table class="border">
                                 <tr>
                                     <th>ID</th>
                                     <th>Username</th>

@@ -5,6 +5,7 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
         if($db->sel("select * from user where username='$username'") AND $db->sel("select * from user where password='$password'")){
+            $role = $row["role"];
             session_start();
             $_SESSION["login"] = 1;
             $_SESSION["username"] = $username;

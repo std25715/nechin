@@ -6,7 +6,7 @@ if ($_SESSION["login"] == 0) {
 }
 else{
     $flex = "";
-    $sql = "select * from product";
+    $sql = "select * from product_type";
     if($db->sel($sql)){
         while($product = $db->res->fetch_assoc()){
             $name = $product["name"];
