@@ -56,10 +56,10 @@ else{
 }
 ?>
 <section>
-        <div class="container mt-5 pt-5">
+        <div class="container mt-5 pt-5 pb-5">
             <div class="row">
                 <div class="col-12 col-sn-8 col-nd-6">
-                    <div class="card">
+                    <div class="card fix-wide-card">
                         <h1>Topup</h1>
                         <div class="card-body">
                             <form action="" method="post">

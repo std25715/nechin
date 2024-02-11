@@ -8,18 +8,24 @@
         $username = $_SESSION["username"];
         $login_status = $_SESSION["login"];
         if($login_status = 1){
-            if($row = $db->sel("select balance from user where username = '$username'")){
-                if($row = $db->res->fetch_assoc()){
-                    $balance = $row["balance"];
-                }
+            if($row = $db->sel("select * from user where username = '$username'")){
+                $row = $db->res->fetch_assoc();
+                $balance = $row["balance"];
+                $role = $row["role"];
+            }
+            if($role == "member"){
+                $login_bar = "
+                <a href=\"topup.php\" class=\"btn btn-light\">$ $balance</a>
+                <a href=\"index.php\" class=\"btn btn-dark\">$username</a>
+                <a href=\"logout.php\" class=\"btn btn-danger\">Logout</a>";
             }
             else{
-                echo "error";
+                $login_bar = "
+                <a href=\"admin_dashboard.php\" class=\"btn btn-warning\">Dashboard</a>
+                <a href=\"topup.php\" class=\"btn btn-light\">$ $balance</a>
+                <a href=\"index.php\" class=\"btn btn-dark\">$username</a>
+                <a href=\"logout.php\" class=\"btn btn-danger\">Logout</a>";
             }
-            $login_bar = "
-            <a href=\"topup.php\" class=\"btn btn-light\">$.$balance</a>
-            <a href=\"index.php\" class=\"btn btn-dark\">$username</a>
-            <a href=\"logout.php\" class=\"btn btn-danger\">Logout</a>";
 
         }
         else{

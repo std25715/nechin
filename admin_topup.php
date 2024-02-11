@@ -1,29 +1,22 @@
 <?php
-include "nav.php";
-if ($_SESSION["login"] == 0) {
-    echo "<script type='text/javascript'>document.location='login.php'</script>";
-}
-else{
-    $tr = "";
-    $username = $_SESSION["username"];
-    if($db->sel("select * from topup where username='$username'")){
-        while($row = $db->res->fetch_assoc()){
-            $id = $row["topup_id"];
-            $username = $row["username"];
-            $amount = $row["amount"];
-            $date = $row["dtime"];
-            $tr .= "
+$tr = "";
+if($db->sel("select * from topup")){
+    while($row = $db->res->fetch_assoc()){
+        $topup_id = $row["topup_id"];
+        $username = $row["username"];
+        $amount = $row["amount"];
+        $time = $row["dtime"];
+        $tr .= "
             <tr class=\"border\">
-                <td>$id</td>
-                <td>$username</td>
+                <td>$topup_id</td>
+                <td>$username</td>                
                 <td>$amount</td>
-                <td>$date</td>
+                <td>$time</td>
             </tr>";
-
-        }
     }
-} 
+}
 ?>
+
 <section>
         <div class="container mt-5 pt-5">
             <div class="row">
@@ -36,7 +29,7 @@ else{
                                     <th>ID</th>
                                     <th>Username</th>
                                     <th>Amount</th>
-                                    <th>Date</th>
+                                    <th>Time</th>
                                 </tr>
                                 <?=$tr?>
                             </table>
