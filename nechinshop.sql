@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 05:22 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.18
+-- Generation Time: Feb 12, 2024 at 09:59 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,14 +35,7 @@ CREATE TABLE `history` (
   `username` varchar(50) NOT NULL,
   `price` int(10) NOT NULL,
   `id_pass` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `history`
---
-
-INSERT INTO `history` (`history_id`, `dtime`, `product_id`, `name`, `username`, `price`, `id_pass`) VALUES
-(1, '2024-02-01 04:13:51', 1, 'ไก่ตัน V.1', 'signo', 50, 'username:password');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -53,8 +46,17 @@ INSERT INTO `history` (`history_id`, `dtime`, `product_id`, `name`, `username`, 
 CREATE TABLE `product` (
   `product_id` int(11) NOT NULL,
   `id_pass` text NOT NULL,
-  `product_type` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `product_type` varchar(255) NOT NULL,
+  `pdtype_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`product_id`, `id_pass`, `product_type`, `pdtype_id`) VALUES
+(6, 'a', 'tt', 1),
+(7, 'tesst2', 'ไก่ตัน V.2', 2);
 
 -- --------------------------------------------------------
 
@@ -63,20 +65,21 @@ CREATE TABLE `product` (
 --
 
 CREATE TABLE `product_type` (
-  `pd_id` int(5) NOT NULL,
+  `pdtype_id` int(5) NOT NULL,
   `price` int(10) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `img` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `img` varchar(255) NOT NULL,
+  `amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product_type`
 --
 
-INSERT INTO `product_type` (`pd_id`, `price`, `name`, `img`) VALUES
-(1, 39, 'ไก่ตัน V.1 ', 'v1.jpg'),
-(2, 59, 'ไก่ตัน V.2 ', 'v2.jpg'),
-(3, 69, 'ไก่ตัน V.3 ', 'v3.jpg');
+INSERT INTO `product_type` (`pdtype_id`, `price`, `name`, `img`, `amount`) VALUES
+(1, 39, 'ไก่ตัน V.1', 'v1.jpg', 2),
+(2, 59, 'ไก่ตัน V.2', 'v2.jpg', 0),
+(3, 69, 'ไก่ตัน V.3', 'v3.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -89,7 +92,7 @@ CREATE TABLE `topup` (
   `dtime` timestamp NOT NULL DEFAULT current_timestamp(),
   `username` varchar(50) NOT NULL,
   `amount` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `topup`
@@ -112,16 +115,14 @@ CREATE TABLE `user` (
   `role` varchar(100) NOT NULL,
   `balance` int(10) NOT NULL,
   `dtime` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`username`, `password`, `email`, `role`, `balance`, `dtime`) VALUES
-('signo', '1234', 'ppeeppap@gmail.com', 'member', 60, '2023-12-12 16:57:38'),
-('signo2', '1234', 'signo@gmail.com', 'member', 0, '2024-02-01 03:55:26'),
-('signo3', '1234', 'signo@gmail.com', 'member', 0, '2024-02-01 03:56:28');
+('signo', '1234', 'ppeeppap@gmail.com', 'admin', 21948, '2023-12-12 16:57:38');
 
 --
 -- Indexes for dumped tables
@@ -143,7 +144,7 @@ ALTER TABLE `product`
 -- Indexes for table `product_type`
 --
 ALTER TABLE `product_type`
-  ADD PRIMARY KEY (`pd_id`);
+  ADD PRIMARY KEY (`pdtype_id`);
 
 --
 -- Indexes for table `topup`
@@ -165,13 +166,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `product_type`
+--
+ALTER TABLE `product_type`
+  MODIFY `pdtype_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `topup`
