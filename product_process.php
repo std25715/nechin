@@ -21,7 +21,13 @@ if(isset($_POST["update_product"])){
     }
 }
 if(isset($_POST["del_product"])){
+    $pdtype_id = $_GET["pdtype_id"];
+    $db->sel("select * from product_type where pdtype_id='$pdtype_id'");
+    $row = $db->res->fetch_assoc();
+    $amount = $row["amount"];
     if($db->del("product","product_id='$product_id'")){
+        $new_amount = $amount - 1;
+        $db->update("product_type","amount='$new_amount'","pdtype_id='$pdtype_id'");
         echo "<script type='text/javascript'>document.location='admin_dashboard.php?mod=product'</script>";
     }
 }

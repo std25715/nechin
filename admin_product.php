@@ -15,6 +15,7 @@ if($db->sel("select * from product")){
         $product_id = $row["product_id"];
         $id_pass = $row["id_pass"];
         $product_type = $row["product_type"];
+        $pdtype_id = $row["pdtype_id"];
         $modal_id = "product_$product_id";
         $update .= '<div class="modal fade" id="update_'.$modal_id.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -53,7 +54,7 @@ if($db->sel("select * from product")){
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-                  <form action="product_process.php?product_id='.$product_id.'" method="post">
+                  <form action="product_process.php?product_id='.$product_id.'&pdtype_id='.$pdtype_id.'" method="post">
                     <input type="submit" class="btn btn-primary" name="del_product" value="ยืนยัน">
                   </form>
                 </div>

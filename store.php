@@ -7,6 +7,7 @@ if ($_SESSION["login"] == 0) {
 else{
     $flex = "";
     $modal = "";
+    $disabled = "";
     if($db->sel("select * from product_type")){
         while($product = $db->res->fetch_assoc()){
             $name = $product["name"];
@@ -35,13 +36,16 @@ else{
               </div>
             </div>
           </div>';
+            if($amount == 0){
+              $disabled = "disabled";
+            }
             $flex .= "
             <div class=\"store-item\">
                 <div class=\"store-content-box\">
                     <img src=\"img/$img\">
                     <h3>$name</h3>
                     <h6 class=\"c-purple\">ราคา $price บาท</h6>
-                    <button type=\"button\" class=\"btn btn-purple\" data-toggle=\"modal\" data-target=\"#$modal_id\">สั่งซื้อสินค้า</button>
+                    <button $disabled type=\"button\" class=\"btn btn-purple\" data-toggle=\"modal\" data-target=\"#$modal_id\" >สั่งซื้อสินค้า</button>
                     <h6 class=\"c-gray\">สินค้าจำนวน $amount ชิ้น</h6>
                 </div>
             </div>";
