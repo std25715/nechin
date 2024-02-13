@@ -25,7 +25,7 @@ if($db->sel("select * from product_type")){
                         <label for="" class="col-form-label">Name :</label>
                         <input type="text" class="form-control" name="name" value="'.$name.'">
                         <label for="" class="col-form-label">Img :</label>
-                        <input type="text" class="form-control" name="img" value="'.$img.'">
+                        <input type="file" class="form-control" id="inputGroupFile02" name="img" value="'.$img.'">                          
                         <label for="" class="col-form-label">Price :</label>
                         <input type="text" class="form-control" name="price" value="'.$price.'">
                 </div>
@@ -120,7 +120,7 @@ if($db->sel("select * from product_type")){
                     <label for="" class="col-form-label">Name :</label>
                     <input type="text" class="form-control" name="name" value="">
                     <label for="" class="col-form-label">Img :</label>
-                    <input type="text" class="form-control" name="img" value="">
+                    <input type="file" class="form-control" id="inputGroupFile02" name="img" value="">                                                          
                     <label for="" class="col-form-label">Price :</label>
                     <input type="text" class="form-control" name="price" value="">
             </div>

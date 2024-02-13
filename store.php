@@ -39,6 +39,9 @@ else{
             if($amount == 0){
               $disabled = "disabled";
             }
+            else{
+              $disabled = "";
+            }
             $flex .= "
             <div class=\"store-item\">
                 <div class=\"store-content-box\">

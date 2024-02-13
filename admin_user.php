@@ -2,6 +2,13 @@
 $tr = "";
 $update = "";
 $del = "";
+$option = "";
+if($db->sel("select * from role")){
+  while($row = $db->res->fetch_assoc()){
+      $role = $row["role"];      
+      $option .= "<option value=$role>$role</option>";
+  }
+}
 if($db->sel("select * from user")){
     while($row = $db->res->fetch_assoc()){
         $username = $row["username"];
@@ -26,7 +33,10 @@ if($db->sel("select * from user")){
                         <label for="" class="col-form-label">Email :</label>
                         <input type="text" class="form-control" name="email" value="'.$email.'" >
                         <label for="" class="col-form-label">Role :</label>
-                        <input type="text" class="form-control" name="role" value="'.$role.'" >
+                        <select name="role" id="" class="custom-select mt-3">
+                            <option selected>Role :</option>
+                            '.$option.'
+                        </select>
                         <label for="" class="col-form-label">Balance :</label>
                         <input type="text" class="form-control" name="balance" value="'.$balance.'" >
                 </div>

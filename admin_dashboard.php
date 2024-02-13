@@ -1,5 +1,8 @@
 <?php
 include "nav.php";
+if($role != "admin"){
+    echo "<script type='text/javascript'>document.location='index.php'</script>";
+}
 ?>
 
 <div class="container">
