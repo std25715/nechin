@@ -45,7 +45,7 @@ else{
             $flex .= "
             <div class=\"store-item\">
                 <div class=\"store-content-box\">
-                    <img src=\"img/$img\">
+                    <img src=\"img/upload/$img\">
                     <h3>$name</h3>
                     <h6 class=\"c-purple\">ราคา $price บาท</h6>
                     <button $disabled type=\"button\" class=\"btn btn-purple\" data-toggle=\"modal\" data-target=\"#$modal_id\" >สั่งซื้อสินค้า</button>

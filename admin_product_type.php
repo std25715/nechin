@@ -19,7 +19,7 @@ if($db->sel("select * from product_type")){
                   </button>
                 </div>
                 <div class="modal-body">
-                    <form action="product_type_process.php?pdtype_id='.$pdtype_id.'" method="post">
+                    <form action="product_type_process.php?pdtype_id='.$pdtype_id.'" method="post" enctype="multipart/form-data">
                         <label for="" class="col-form-label">ID :</label>
                         <input type="text" class="form-control" name="pdtype_id" value="'.$pdtype_id.'" disabled>
                         <label for="" class="col-form-label">Name :</label>
@@ -63,7 +63,7 @@ if($db->sel("select * from product_type")){
             <tr class=\"border\">
                 <td>$pdtype_id</td>
                 <td>$name</td>                
-                <td><img src=\"img/$img\"></td>
+                <td><img src=\"img/upload/$img\"></td>
                 <td>$price</td>
                 <td>
                 <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#update_$modal_id\">แก้ไขรายการ</button>
@@ -116,11 +116,11 @@ if($db->sel("select * from product_type")){
                 </button>
             </div>
             <div class="modal-body">
-                <form action="product_type_process.php" method="post">
+                <form action="product_type_process.php" method="post" enctype="multipart/form-data">
                     <label for="" class="col-form-label">Name :</label>
                     <input type="text" class="form-control" name="name" value="">
                     <label for="" class="col-form-label">Img :</label>
-                    <input type="file" class="form-control" id="inputGroupFile02" name="img" value="">                                                          
+                    <input type="file" class="form-control" id="inputGroupFile02" name="img" id="img" value="" required>                                                          
                     <label for="" class="col-form-label">Price :</label>
                     <input type="text" class="form-control" name="price" value="">
             </div>
