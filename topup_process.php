@@ -10,4 +10,4 @@ include "_voucher.php";
 
 use M4h45amu7x\Voucher;
 
-$voucher = new Voucher('0855910864', $wallet_link);
+$voucher = new Voucher('0634594483', $wallet_link);
