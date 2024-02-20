@@ -64,7 +64,7 @@ else{
                         <div class="card-body">
                             <form action="" method="post">
                                 <img class="center" src="img/angpao.webp" alt="">
-                                <input type="text" name="topup_link" id="" class="form-control my-4 py-2" placeholder="วางลิงค์ซองอั่งเปา">
+                                <input type="text" name="topup_link" id="" class="form-control my-4 py-2" placeholder="วางลิงค์ซองอั่งเปา" required>
                                 <div class="error-message"><?=$status_message?></div>
                                 <div class="success-message"><?=$success_message?></div>
                                 <div class="text-center mt-3">
