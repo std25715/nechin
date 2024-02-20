@@ -28,7 +28,7 @@ if($db->sel("select * from history")){
             <div class="row">
                 <div class="col-12 col-sn-8 col-nd-6">
                     <div class="card">
-                        <h1>ประวัติการเติมเงิน</h1>
+                        <h1>ประวัติการซื้อสินค้า</h1>
                         <div class="card-body">
                             <table class="border">
                                 <tr>
